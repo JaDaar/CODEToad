@@ -7,25 +7,32 @@ using System.Net.Http.Headers;
 using System.Web.Http;
 using AttributeRouting.Web.Http;
 using CODEToad.Data;
+using CODEToad.Data.Models;
+using CODEToad.Data.Repository;
 
 namespace CODEToad.API.Controllers
 {
     public class CodeToadController : ApiController
     {
+        private Repository repo;
+        public CodeToadController()
+        {
+            repo = new Repository();
+        }
         // GET api/<controller>
         [HttpGet]
         [Route("api/notes")]
-        public IEnumerable<CodeNotes> Get()
+        public IEnumerable<CodeNote> Get()
         {
-            var retVal = new List<CodeNotes>();
+            var retVal = new List<CodeNote>();
             try
             {
                 
-                var c = new CodeToadModel();
-                retVal = c.CodeNodeList.ToList();
+                var repo = new CodeToadContext();
+                retVal = repo.CodeNodes.ToList();
                 return retVal;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return retVal;
             }
@@ -33,35 +40,80 @@ namespace CODEToad.API.Controllers
 
         [HttpGet]
         [Route("api/notes/{noteid:int}")]
-        public CodeNotes Get(int noteid)
+        public CodeNote Get(int noteid)
         {
-            var retVal = new CodeNotes();
+            var retVal = new CodeNote();
             try
             {
-
-                var c = new CodeToadModel();
-                retVal = c.CodeNodeList.FirstOrDefault(x=>x.CodeNoteId==noteid);
+                retVal = repo.GetNotes().FirstOrDefault(x=>x.CodeNoteId==noteid);
                 return retVal;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return retVal;
             }
         }
 
         // POST api/<controller>
-        public void Post([FromBody]string value)
+        [HttpPost]
+        [Route("api/notes")]
+        public bool Post([FromBody]CodeNote note)
         {
+            bool retVal = false;
+            try
+            {
+                if (!ModelState.IsValid)
+                {
+                    return false;
+                }
+                if (string.IsNullOrWhiteSpace(note.Title))
+                    return retVal;
+                retVal=repo.AddNote(note);
+                return retVal;
+            }
+            catch (Exception)
+            {
+
+                return retVal;
+            }
         }
 
-        // PUT api/<controller>/5
-        public void Put(int id, [FromBody]string value)
+        [HttpPost]
+        [Route("api/notes/update/")]
+        public bool Update([FromBody]CodeNote note)
         {
+            bool retVal = false;
+            try
+            {
+                if (!ModelState.IsValid)
+                {
+                    return false;
+                }
+                if (string.IsNullOrWhiteSpace(note.Title))
+                    return retVal;
+                retVal = repo.UpdateNote(note);
+                return retVal;
+            }
+            catch (Exception)
+            {
+                return retVal;
+            }
         }
 
-        // DELETE api/<controller>/5
-        public void Delete(int id)
+        [HttpPut]
+        [Route("api/notes/delete/{noteid:int}")]
+        public bool Put(int noteid)
         {
+            bool retVal = false;
+            try
+            {
+                retVal = repo.DeleteNote(noteid);
+                return retVal;
+            }
+            catch (Exception)
+            {
+                return retVal;
+            }
         }
     }
 }
