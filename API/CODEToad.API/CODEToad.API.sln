@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.329
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CODEToad.API", "CODEToad.API\CODEToad.API.csproj", "{4DF172E0-E951-4DF7-A35F-351A65D8EE47}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CODEToad.Data", "CODEToad.Data\CODEToad.Data.csproj", "{DC4AFF97-6FD0-4CE2-81D5-0E89D25B189B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4DF172E0-E951-4DF7-A35F-351A65D8EE47}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4DF172E0-E951-4DF7-A35F-351A65D8EE47}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4DF172E0-E951-4DF7-A35F-351A65D8EE47}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4DF172E0-E951-4DF7-A35F-351A65D8EE47}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DC4AFF97-6FD0-4CE2-81D5-0E89D25B189B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DC4AFF97-6FD0-4CE2-81D5-0E89D25B189B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DC4AFF97-6FD0-4CE2-81D5-0E89D25B189B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DC4AFF97-6FD0-4CE2-81D5-0E89D25B189B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7C771EEF-DE4B-4E7A-94F8-BEEB00D6216E}
+	EndGlobalSection
+EndGlobal
