@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace CODEToad.Data.Models
 {
 
-    public class CodeNotes
+    public class CodeNote
     {
         [Key]
         public int CodeNoteId { get; set; }

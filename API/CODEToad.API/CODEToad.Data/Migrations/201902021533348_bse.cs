@@ -8,7 +8,7 @@ namespace CODEToad.Data.Migrations
         public override void Up()
         {
             CreateTable(
-                "dbo.CodeNotes",
+                "dbo.CodeNote",
                 c => new
                     {
                         CodeNoteId = c.Int(nullable: false, identity: true),
@@ -25,7 +25,7 @@ namespace CODEToad.Data.Migrations
         
         public override void Down()
         {
-            DropTable("dbo.CodeNotes");
+            DropTable("dbo.CodeNote");
         }
     }
 }

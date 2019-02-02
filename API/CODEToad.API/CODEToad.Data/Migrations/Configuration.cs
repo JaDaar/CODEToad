@@ -5,14 +5,14 @@ namespace CODEToad.Data.Migrations
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<CODEToad.Data.CodeToadModel>
+    internal sealed class Configuration : DbMigrationsConfiguration<CODEToad.Data.CodeToadContext>
     {
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
         }
 
-        protected override void Seed(CODEToad.Data.CodeToadModel context)
+        protected override void Seed(CODEToad.Data.CodeToadContext context)
         {
             //  This method will be called after migrating to the latest version.
 
